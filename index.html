@@ -188,9 +188,6 @@
   .before-box .lbl{ font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--red); margin-bottom:5px; }
   .before-box p{ margin:0; font-size:13px; color:#8a3325; line-height:1.55; }
 
-  .evidence{ font-size:11.5px; color:var(--text-faint); line-height:1.6; border-top:1px solid var(--border); padding-top:14px; margin-top:6px;}
-  .evidence b{ color:var(--text-dim); }
-
   .phone-pane{
     background: var(--card-soft);
     border-left:1px solid var(--border);
@@ -292,9 +289,6 @@
   .progress-track{ height:6px; background:var(--card-soft); border:1px solid var(--border); border-radius:999px; overflow:hidden; margin:12px 0; }
   .progress-fill{ height:100%; background: var(--accent); width:0%; transition: width .3s linear; }
 
-  .terra-msg{ background:var(--card-soft); border:1px solid var(--border); border-radius:12px; padding:10px 12px; font-size:12.5px; line-height:1.5; margin-bottom:8px; }
-  .terra-msg.me{ background: var(--accent-soft); border-color:var(--accent-border); }
-
   .flash{ animation: flashIn .25s ease; }
   @keyframes flashIn{ from{ opacity:0; transform:translateY(5px);} to{ opacity:1; transform:translateY(0);} }
 
@@ -314,7 +308,6 @@
   <div class="board-header">
     <div class="eyebrow">Landeed UX audit</div>
     <h1>Pain points, mapped to fixes</h1>
-    <p>Based on a screen recording of the live app and around 26,000 Play Store reviews. Tap a card to try the fix for that one problem.</p>
   </div>
 
   <div class="legend">
@@ -394,10 +387,9 @@ const PAIN_POINTS = [
     title:"Search takes two steps",
     issue:"You search for a locality, then have to separately pick a state. The state list only matches state names, so typing a city like Bangalore finds nothing.",
     quote:"The user retyped Beng, Bang, Kai and Karn before finally picking Karnataka.",
-    meta:"Seen from 2:20 to 3:12 in the recording",
+    meta:"Seen from 2:20 to 3:12",
     fixLabel:"One search field. Type a locality and the state fills in on its own. No second screen.",
     before:"The state screen only matches exact state names. Bangalore, BLR and Beng all fail, so the user has to know and type the exact state name.",
-    evidence:"PRD section 6.1, audit issue 3",
   },
   {
     id:"deadend", sev:"high", sevLabel:"High",
@@ -407,17 +399,6 @@ const PAIN_POINTS = [
     meta:"Seen from 1:35 to 2:20, right after the first search",
     fixLabel:"Show close matches you can tap, plus ways to browse nearby records or talk to support.",
     before:"A failed search clears everything you typed. There is no suggestion and no other way forward.",
-    evidence:"PRD section 6.2, audit issue 4",
-  },
-  {
-    id:"paywall", sev:"critical", sevLabel:"Critical",
-    title:"Price shows up too late",
-    issue:"You go through search, OTP, a wait screen, a map pin and AI processing before seeing what anything costs.",
-    quote:"A Play Store review describes being charged 1,500 rupees with no warning that payment was separate from search.",
-    meta:"Seen at the end of the flow, on the Terra screen",
-    fixLabel:"Show the price on the result screen, before login. Add one line before OTP saying you only pay if the record is found.",
-    before:"The buy button appears after several screens of work, with no earlier mention of price or that payment is separate from search.",
-    evidence:"PRD section 6.3, audit issue 1 (top complaint)",
   },
   {
     id:"wait", sev:"medium", sevLabel:"Medium",
@@ -427,7 +408,6 @@ const PAIN_POINTS = [
     meta:"Seen from 1:35 to 2:20",
     fixLabel:"Same four stages, now with a time estimate and a progress bar you can watch move.",
     before:"Stage labels change with no timer and no percentage, so there is no way to know how much longer it will take.",
-    evidence:"PRD section 6.4, audit issue 5",
   },
   {
     id:"mapfill", sev:"medium", sevLabel:"Medium",
@@ -437,17 +417,6 @@ const PAIN_POINTS = [
     meta:"Seen from 3:40 to 3:47",
     fixLabel:"Flag any field that could not be filled in and let the user type it before confirming.",
     before:"A blank or broken field is shown the same way as the correct ones, with no flag and no way to fix it.",
-    evidence:"PRD section 7 edge cases, audit issue 6",
-  },
-  {
-    id:"postpay", sev:"high", sevLabel:"High",
-    title:"Paying is the end, not the start",
-    issue:"After payment, you get a PDF and the flow just ends. Nothing brings you back to the app.",
-    quote:"Nothing happens after payment except a download. There is no saved record and no reason to return.",
-    meta:"Right after Buy Credits Now",
-    fixLabel:"Save the document on its own, offer to track the property, and let you ask a follow up question right away.",
-    before:"The only outcome of paying is a download button. There is nothing saved and no reason to come back to the app.",
-    evidence:"PRD section 6.5, goal 4",
   },
 ];
 
@@ -523,7 +492,6 @@ function renderInfo(){
       <div class="lbl">Fix in this prototype</div>
       <p>${p.fixLabel}</p>
     </div>
-    <div class="evidence"><b>Source:</b> ${p.evidence}<br/><b>Try it:</b> use the Before and After tabs above the phone.</div>
   `;
 }
 
@@ -659,52 +627,7 @@ SCREENS.deadend = {
   }
 };
 
-/* ---------- 3. PAYWALL TIMING ---------- */
-SCREENS.paywall = {
-  before(root){
-    root.innerHTML = `
-      <div class="scr-title flash">Terra AI</div>
-      <div class="scr-sub">Fetching land records for survey number 108, Haveri.</div>
-      <div class="card-ui"><div class="chip static">Haveri, Karnataka</div><div class="small-note">Processing complete.</div></div>
-      <button class="btn-primary" id="reveal">Buy Credits Now</button>
-      <div id="shock"></div>
-    `;
-    root.querySelector('#reveal').onclick = ()=>{
-      root.querySelector('#shock').innerHTML = `
-        <div class="card-ui flash" style="border-color:var(--red-border); background:var(--red-soft);">
-          <b style="color:var(--red); font-size:13px;">Rs. 1,500</b>
-          <div class="small-note" style="color:#8a3325;">This is the first time any price appears, after search, OTP, the wait screen, the map pin and AI processing were already done.</div>
-        </div>`;
-    };
-  },
-  after(root){
-    root.innerHTML = `
-      <div class="scr-title flash">Sarjapur, Bengaluru, Karnataka</div>
-      <div class="card-ui">
-        <div class="row-between"><b style="font-size:13px;">Record found</b><span class="pin-meta">SY-10x</span></div>
-        <div class="small-note" style="margin-bottom:10px;">Prices are shown here, before you log in:</div>
-        <div class="row-between" style="margin-bottom:8px;"><span>EC</span><span class="chip static">Rs. 49</span></div>
-        <div class="row-between" style="margin-bottom:8px;"><span>RTC</span><span class="chip static">Rs. 29</span></div>
-        <div class="row-between"><span>Khata</span><span class="chip static">Rs. 35</span></div>
-      </div>
-      <button class="btn-primary" id="unlock">Unlock EC for Rs. 49</button>
-      <div id="otpArea"></div>
-    `;
-    root.querySelector('#unlock').onclick = ()=>{
-      root.querySelector('#otpArea').innerHTML = `
-        <div class="card-ui flash" style="margin-top:14px;">
-          <div class="fix-box" style="margin-bottom:12px;">
-            <div class="lbl" style="color:var(--accent);">Before you continue</div>
-            <p style="color:var(--text);">This is fetched live from Karnataka land records. You only pay if the record is found and verified.</p>
-          </div>
-          <input class="field" placeholder="Mobile number" style="margin-bottom:8px;">
-          <button class="btn-secondary" style="margin-top:0;">Send OTP</button>
-        </div>`;
-    };
-  }
-};
-
-/* ---------- 4. WAIT TIME ---------- */
+/* ---------- 3. WAIT TIME ---------- */
 const STAGES = ["Connecting","Searching","Verifying","Preparing"];
 SCREENS.wait = {
   before(root){
@@ -767,7 +690,7 @@ SCREENS.wait = {
   }
 };
 
-/* ---------- 5. MAP AUTOFILL ---------- */
+/* ---------- 4. MAP AUTOFILL ---------- */
 SCREENS.mapfill = {
   before(root){
     root.innerHTML = `
@@ -803,49 +726,6 @@ SCREENS.mapfill = {
     root.querySelector('#confirmB').onclick = ()=>{
       const v = root.querySelector('#distIn').value.trim();
       root.querySelector('#mapOk').innerHTML = `<div class="card-ui flash">${v? `District set to "${v}" by hand.` : 'Missing field flagged. You knew before confirming, not after.'}</div>`;
-    };
-  }
-};
-
-/* ---------- 6. POST PAYMENT ---------- */
-SCREENS.postpay = {
-  before(root){
-    root.innerHTML = `
-      <div class="scr-title flash">Document ready</div>
-      <div class="card-ui" style="text-align:center; padding:22px 14px;">
-        <b>EC_Sarjapur_108.pdf</b>
-      </div>
-      <button class="btn-primary">Download PDF</button>
-      <div class="small-note">That is it. Nothing is saved, nothing is tracked, no reason to come back.</div>
-    `;
-  },
-  after(root){
-    root.innerHTML = `
-      <div class="scr-title flash">Verified</div>
-      <div class="card-ui">
-        <div class="row-between" style="margin-bottom:6px;"><span style="font-size:13px;">Ownership match</span><span class="chip done static">Yes</span></div>
-        <div class="row-between"><span style="font-size:13px;">No pending mutation</span><span class="chip done static">Yes</span></div>
-      </div>
-      <div class="card-ui" style="text-align:center; padding:18px 14px;">
-        <b>EC_Sarjapur_108.pdf</b>
-        <div class="small-note">Saved to your Vault automatically.</div>
-      </div>
-      <div class="row-between card-ui">
-        <span style="font-size:12.5px;">Track this property</span>
-        <label class="switch"><input type="checkbox"><span class="track"><span class="thumb"></span></span></label>
-      </div>
-      <div class="card-ui">
-        <div class="small-note" style="margin:0 0 8px;">Ask Terra about this document:</div>
-        <span class="chip" id="askTerra">"Any loan on this property?"</span>
-        <div id="terraReply"></div>
-      </div>
-    `;
-    root.querySelector('#askTerra').onclick = (e)=>{
-      e.target.outerHTML = `<div class="terra-msg me flash">Any loan on this property?</div>`;
-      const iv = setTimeout(()=>{
-        root.querySelector('#terraReply').innerHTML = `<div class="terra-msg flash">No active loan or encumbrance found on survey number 108, based on the latest verified record. Ask again anytime, no need to search or pay again.</div>`;
-      }, 500);
-      timers.push(iv);
     };
   }
 };
