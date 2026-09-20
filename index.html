@@ -388,15 +388,6 @@
   .hero-stage.active .label{ color:#f4f6fb; }
   .hero-stage.done .label{ color:#c7cee3; }
 
-  .hero-reveal{ display:flex; align-items:center; justify-content:space-between; gap:10px; background:rgba(124,92,255,0.1); border:1px solid rgba(124,92,255,0.32); border-radius:12px; padding:11px 13px; margin-bottom:12px; font-size:12.5px; }
-  .hero-reveal-label{ color:#c3b6ff; font-weight:600; }
-  .hero-reveal-value{ color:#f4f6fb; font-weight:700; }
-
-  .hero-doc-card{ background:#1a2338; border:1px solid #2a3550; border-radius:16px; padding:15px; margin-bottom:14px; }
-  .hero-doc-row{ display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #232d47; font-size:13px; }
-  .hero-doc-row:last-of-type{ border-bottom:none; }
-  .hero-doc-label{ color:#c7cee3; }
-  .hero-doc-value{ color:#f4f6fb; font-weight:600; }
   .hero-blur{ filter: blur(5px); user-select:none; }
 
   /* home screen replica */
@@ -440,6 +431,44 @@
   .hero-dd-row:last-child{ border-bottom:none; }
   .hero-dd-row:hover{ background:rgba(124,92,255,0.1); }
   .hero-dd-row .hero-dd-sub{ font-size:11px; color:#7e88a6; margin-top:2px; }
+
+  /* found result, matches the real Property Transactions unlock screen */
+  .hero-found-wrap{ position:relative; min-height:430px; }
+  .hero-dim-bg{ position:absolute; inset:0; opacity:.4; filter:blur(1px); pointer-events:none; }
+  .hero-dim-row{ display:flex; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px solid #232d47; font-size:12px; }
+  .hero-dim-label{ color:#7e88a6; }
+  .hero-dim-value{ color:#c7cee3; font-weight:600; }
+  .hero-dim-party{ display:flex; align-items:center; gap:8px; margin-top:14px; }
+  .hero-dim-avatar{ width:24px; height:24px; border-radius:50%; background:#1a2338; border:1px solid #2a3550; display:flex; align-items:center; justify-content:center; font-size:11px; color:#7e88a6; }
+  .hero-dim-viewbtn{ margin-top:20px; text-align:center; background:#1a2338; border:1px solid #2a3550; color:#7e88a6; border-radius:999px; padding:11px; font-size:12.5px; font-weight:600; }
+  .hero-found-overlay{ position:absolute; left:0; right:0; top:38%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 6px; }
+  .hero-found-icon{ width:46px; height:46px; border-radius:14px; background:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:16px; box-shadow:0 0 30px 4px rgba(124,92,255,0.55); }
+  .hero-found-text{ font-size:14.5px; font-weight:700; color:#f4f6fb; line-height:1.5; margin-bottom:14px; }
+  .hero-found-text b{ color:#fff; }
+  .hero-reveal-pill{ display:inline-flex; align-items:center; gap:6px; background:rgba(124,92,255,0.16); border:1px solid rgba(124,92,255,0.4); color:#e3ddff; font-size:11.5px; font-weight:600; padding:7px 13px; border-radius:999px; margin-bottom:16px; }
+  .hero-btn-glow{
+    width:100%; background:#7c5cff; color:#fff; border:none; border-radius:999px;
+    padding:14px; font-size:14px; font-weight:700; font-family:inherit; cursor:pointer;
+    box-shadow:0 8px 26px -6px rgba(124,92,255,0.7);
+  }
+  .hero-btn-glow:hover{ background:#6c4aef; }
+
+  /* pricing package screen, matches the real "Unlock your records now" screen */
+  .hero-pkg-header{ flex:1; text-align:center; background:#e9e7f7; color:#1c1b19; font-size:12.5px; font-weight:700; padding:9px 14px; border-radius:999px; margin:0 8px; }
+  .hero-pkg-card{ position:relative; background:#1a2338; border:1.5px solid #2a3550; border-radius:18px; padding:14px 15px; margin-bottom:12px; cursor:pointer; }
+  .hero-pkg-card.selected{ border-color:#7c5cff; box-shadow:0 0 0 1px #7c5cff; }
+  .hero-pkg-top{ display:flex; align-items:flex-start; gap:11px; }
+  .hero-pkg-radio{ width:19px; height:19px; border-radius:50%; border:2px solid #3a4364; flex:none; margin-top:2px; display:flex; align-items:center; justify-content:center; }
+  .hero-pkg-card.selected .hero-pkg-radio{ border-color:#7c5cff; }
+  .hero-pkg-radio-dot{ width:9px; height:9px; border-radius:50%; background:#7c5cff; display:none; }
+  .hero-pkg-card.selected .hero-pkg-radio-dot{ display:block; }
+  .hero-pkg-title{ font-size:14.5px; font-weight:700; color:#f4f6fb; }
+  .hero-pkg-price{ font-size:11.5px; color:#9aa4bf; margin-top:3px; }
+  .hero-off-badge{ background:#f4e58a; color:#4a3d00; font-size:10.5px; font-weight:800; padding:4px 9px; border-radius:999px; white-space:nowrap; }
+  .hero-hot-badge{ position:absolute; top:-9px; right:14px; background:linear-gradient(120deg,#ff8a3d,#ff4d8a); color:#fff; font-size:10px; font-weight:800; padding:4px 10px; border-radius:999px; }
+  .hero-pkg-features{ border-top:1px dashed #2a3550; margin-top:12px; padding-top:12px; display:flex; flex-direction:column; gap:9px; }
+  .hero-pkg-feature-row{ display:flex; align-items:center; gap:9px; font-size:11.5px; color:#c7cee3; }
+  .hero-pkg-feature-row .ic{ font-size:14px; flex:none; }
 
   .hero-deadend-icon{ display:flex; justify-content:center; margin:22px 0 4px; }
   .hero-deadend-title{ font-size:15px; font-weight:700; color:#f4f6fb; text-align:center; margin:14px 0 8px; line-height:1.4; }
@@ -972,7 +1001,7 @@ function renderHeroTabs(){
 function heroSwitchTab(tab){
   heroTab = tab;
   renderHeroTabs();
-  if(heroStep==='result' || heroStep==='pincode-retry' || heroStep==='map-retry'){
+  if(heroStep==='result' || heroStep==='pricing' || heroStep==='pincode-retry' || heroStep==='map-retry'){
     heroStep = 'result';
     heroClearTimers();
     renderHeroStep();
@@ -988,6 +1017,7 @@ function renderHeroStep(){
   else if(heroStep==='search-form') renderHeroSearchForm();
   else if(heroStep==='wait') renderHeroWait();
   else if(heroStep==='result') (heroTab==='found' ? renderHeroFound() : renderHeroDeadend());
+  else if(heroStep==='pricing') renderHeroPricing();
   else if(heroStep==='pincode-retry') renderHeroPincodeRetry();
   else if(heroStep==='map-retry') renderHeroMapRetry();
 }
@@ -1143,27 +1173,81 @@ function renderHeroWait(){
   heroTimers.push(iv);
 }
 
-/* ---- 4a. found: original priced document card, plus a one line name reveal ---- */
+/* ---- 4a. found: the real Property Transactions unlock screen, plus a one line name reveal ---- */
 function renderHeroFound(){
   heroPhoneScreen.innerHTML = `
     <div class="hero-topbar">
-      <span class="hero-back" id="heroRestartBtn">&#8635;</span>
-      <span class="hero-topbar-title">${heroLocalityName}, Delhi</span>
+      <span class="hero-back" id="heroRestartBtn">&#8592;</span>
+      <span class="hero-topbar-title">Property Transactions</span>
       <span style="width:26px"></span>
     </div>
-    <div class="hero-reveal">
-      <span class="hero-reveal-label">Owner name on record</span>
-      <span class="hero-reveal-value">Aditya <span class="hero-blur">Kumar</span></span>
+    <div class="hero-found-wrap">
+      <div class="hero-dim-bg">
+        <div class="hero-dim-row"><span class="hero-dim-label">S.no</span><span class="hero-dim-value">--</span></div>
+        <div class="hero-dim-row"><span class="hero-dim-label">Registration No</span><span class="hero-dim-value">--</span></div>
+        <div class="hero-dim-row"><span class="hero-dim-label">Account Statement</span><span class="hero-dim-value">--</span></div>
+        <div class="hero-dim-row"><span class="hero-dim-label">Registration Date</span><span class="hero-dim-value">--</span></div>
+        <div class="hero-dim-row"><span class="hero-dim-label">Land Description</span><span class="hero-dim-value">--</span></div>
+        <div class="hero-dim-party">
+          <span style="font-size:12px; color:#7e88a6;">Party Names (3)</span>
+          <span class="hero-dim-avatar">&#128269;</span>
+          <span class="hero-dim-avatar">&#128269;</span>
+        </div>
+        <div class="hero-dim-viewbtn">View Document</div>
+      </div>
+      <div class="hero-found-overlay">
+        <div class="hero-found-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c5cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+        </div>
+        <div class="hero-found-text">We found 3 EC associated to different properties for <b>${heroLocalityName}, Delhi</b></div>
+        <div class="hero-reveal-pill">Owner on record: Aditya <span class="hero-blur">Kumar</span></div>
+        <button class="hero-btn-glow" id="heroUnlockBtn">Unlock All Documents</button>
+      </div>
     </div>
-    <div class="hero-doc-card">
-      <div class="row-between" style="margin-bottom:2px;"><b style="font-size:13px; color:#f4f6fb;">Record found</b><span style="font-size:11.5px; color:#7e88a6;">SY-10x</span></div>
-      <div class="hero-doc-row"><span class="hero-doc-label">EC</span><span class="hero-doc-value">Rs. 49</span></div>
-      <div class="hero-doc-row"><span class="hero-doc-label">RTC</span><span class="hero-doc-value">Rs. 29</span></div>
-      <div class="hero-doc-row"><span class="hero-doc-label">Khata</span><span class="hero-doc-value">Rs. 35</span></div>
-    </div>
-    <button class="hero-btn-primary">Unlock EC for Rs. 49</button>
   `;
   document.getElementById('heroRestartBtn').onclick = ()=>{ heroStep='search-form'; renderHeroStep(); };
+  document.getElementById('heroUnlockBtn').onclick = ()=>{ heroStep='pricing'; renderHeroStep(); };
+}
+
+/* ---- 4a-ii. pricing: the real "Unlock your records now" package screen ---- */
+const HERO_PACKAGES = [
+  { docs:"50 documents", price:"Rs. 499 (Only Rs. 9.98 per document)", off:"90% off", hot:true,
+    features:["Pack expires after 365 days","NIL and missing documents are free","Share via email or WhatsApp with anyone"] },
+  { docs:"10 documents", price:"Rs. 249 (Only Rs. 24.9 per document)", off:"75% off" },
+  { docs:"3 documents", price:"Rs. 199 (Only Rs. 66.33 per document)", off:"33% off" },
+  { docs:"1 document", price:"Rs. 99 (Only Rs. 99 per document)" },
+];
+let heroSelectedPkg = 0;
+function renderHeroPricing(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-topbar">
+      <span class="hero-back" id="heroPkgBack">&#8592;</span>
+      <span class="hero-pkg-header">Unlock your records now</span>
+    </div>
+    <div id="heroPkgList">
+      ${HERO_PACKAGES.map((p,i)=>`
+        <div class="hero-pkg-card${i===heroSelectedPkg?' selected':''}" data-i="${i}">
+          ${p.hot?'<span class="hero-hot-badge">&#128293; Hot</span>':''}
+          <div class="hero-pkg-top">
+            <div class="hero-pkg-radio"><div class="hero-pkg-radio-dot"></div></div>
+            <div style="flex:1;">
+              <div class="row-between">
+                <span class="hero-pkg-title">${p.docs}</span>
+                ${p.off?`<span class="hero-off-badge">${p.off}</span>`:''}
+              </div>
+              <div class="hero-pkg-price">${p.price}</div>
+            </div>
+          </div>
+          ${i===0?`<div class="hero-pkg-features">${p.features.map(f=>`<div class="hero-pkg-feature-row"><span class="ic">&#10003;</span><span>${f}</span></div>`).join('')}</div>`:''}
+        </div>
+      `).join('')}
+    </div>
+    <button class="hero-btn-glow" style="margin-top:4px;">Continue</button>
+  `;
+  document.getElementById('heroPkgBack').onclick = ()=>{ heroStep='result'; renderHeroStep(); };
+  document.querySelectorAll('.hero-pkg-card').forEach(card=>{
+    card.onclick = ()=>{ heroSelectedPkg = Number(card.dataset.i); renderHeroPricing(); };
+  });
 }
 
 /* ---- 4b. dead end ---- */
