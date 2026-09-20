@@ -297,13 +297,128 @@
     .overlay{ padding:0; }
     .modal{ max-width:100%; min-height:100vh; min-height:100dvh; border-radius:0; }
     .modal-body{ grid-template-columns: 1fr; }
-    .phone-pane{ border-left:none; border-top:1px solid var(--border); }
+    .phone-pane, .hero-phone-pane{ border-left:none; border-top:1px solid var(--border); }
   }
+
+  /* ================= Hero: working solution (Landeed-authentic dark phone) ================= */
+  .hero-card{
+    background: linear-gradient(180deg, #18131f, #1d1832);
+    border:1px solid #2c2640;
+    border-radius: 22px;
+    padding: 28px clamp(20px,4vw,32px) 26px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 50px -24px rgba(28,27,25,0.35);
+    position:relative; overflow:hidden;
+  }
+  .hero-card::before{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(600px 220px at 10% 0%, rgba(124,92,255,0.32), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-card-tag{
+    position:relative; display:inline-flex; align-items:center; gap:6px;
+    font-size:11px; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+    color:#c9bbff; background:rgba(124,92,255,0.18); border:1px solid rgba(124,92,255,0.4);
+    padding:5px 12px; border-radius:999px; margin-bottom:14px;
+  }
+  .hero-card h2{
+    position:relative; margin:0 0 10px; color:#f4f2fb;
+    font-size:clamp(22px,3.2vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.2; max-width:660px;
+  }
+  .hero-card p{ position:relative; margin:0 0 18px; color:#c3bcdb; font-size:14px; line-height:1.6; max-width:620px; }
+
+  .hero-phone-pane{
+    background:#0b0f1a; border-left:1px solid var(--border);
+    display:flex; align-items:flex-start; justify-content:center; padding:24px 16px;
+  }
+  .hero-phone{
+    width:100%; max-width:290px; background:#10182a;
+    border-radius:30px; border:9px solid #05070d;
+    box-shadow:0 20px 40px -18px rgba(0,0,0,0.6);
+    overflow:hidden; position:relative;
+  }
+  .hero-phone-notch{ position:absolute; top:0; left:50%; transform:translateX(-50%); width:100px; height:18px; background:#05070d; border-radius:0 0 12px 12px; z-index:3; }
+  .hero-phone-status{ display:flex; justify-content:space-between; padding:12px 18px 2px; font-size:10.5px; color:#e7eaf5; font-weight:700; font-family:'JetBrains Mono',monospace; }
+  .hero-phone-screen{ padding:10px 16px 24px; min-height:420px; color:#e7eaf5; }
+
+  .hero-topbar{ display:flex; align-items:center; justify-content:space-between; padding:4px 0 14px; }
+  .hero-back{ width:26px; height:26px; display:flex; align-items:center; justify-content:center; color:#e7eaf5; font-size:16px; cursor:pointer; border-radius:50%; }
+  .hero-back:hover{ background:rgba(255,255,255,0.06); }
+  .hero-topbar-title{ font-size:14.5px; font-weight:700; color:#f4f6fb; }
+
+  .hero-field-label{ font-size:12px; color:#9aa4bf; font-weight:600; margin-bottom:7px; display:flex; align-items:center; gap:5px; }
+  .hero-info{ opacity:.6; font-size:11px; }
+  .hero-field{
+    width:100%; background:#1a2338; border:1.5px solid #2a3550; border-radius:999px;
+    padding:13px 16px; font-size:13.5px; color:#f4f6fb; font-family:inherit; outline:none; margin-bottom:6px;
+  }
+  .hero-field:focus{ border-color:#7c5cff; }
+  .hero-hint{ font-size:11.5px; color:#7e88a6; line-height:1.5; margin:2px 0 4px; }
+  .hero-chip-row{ margin:8px 0 4px; }
+  .hero-chip{
+    display:inline-flex; align-items:center; background:rgba(124,92,255,0.14); border:1px solid rgba(124,92,255,0.4);
+    color:#c3b6ff; font-size:11.5px; font-weight:700; padding:6px 12px; border-radius:999px; cursor:pointer;
+  }
+  .hero-tip{
+    font-size:11.5px; color:#f4c778; background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.28);
+    border-radius:11px; padding:10px 12px; margin:10px 0 14px; line-height:1.5;
+  }
+
+  .hero-seg{ display:flex; background:#1a2338; border:1px solid #2a3550; border-radius:999px; padding:3px; gap:2px; margin-bottom:4px; }
+  .hero-seg-btn{ flex:1; border:none; background:transparent; color:#9aa4bf; font-family:inherit; font-size:12.5px; font-weight:700; padding:9px 0; border-radius:999px; cursor:pointer; }
+  .hero-seg-btn.active{ background:#7c5cff; color:#fff; }
+
+  .hero-btn-primary{
+    width:100%; background:#7c5cff; color:#fff; border:none; border-radius:999px;
+    padding:14px; font-size:13px; font-weight:800; letter-spacing:.03em; text-transform:uppercase;
+    font-family:inherit; cursor:pointer;
+  }
+  .hero-btn-primary:hover{ background:#6c4aef; }
+  .hero-btn-outline{
+    width:100%; background:transparent; color:#c3b6ff; border:1.5px solid rgba(124,92,255,0.5); border-radius:999px;
+    padding:13px; font-size:12.5px; font-weight:700; font-family:inherit; cursor:pointer; margin-bottom:10px;
+  }
+  .hero-btn-outline:hover{ background:rgba(124,92,255,0.1); }
+  .hero-support-link{ text-align:center; font-size:12px; color:#7e88a6; text-decoration:underline; cursor:pointer; margin-top:6px; }
+
+  .hero-wait-wrap{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:60px 6px 20px; }
+  .hero-ring{ width:56px; height:56px; border-radius:50%; border:4px solid #2a3550; border-top-color:#7c5cff; animation: heroSpin 0.9s linear infinite; margin-bottom:22px; }
+  @keyframes heroSpin{ to{ transform: rotate(360deg); } }
+  .hero-wait-text{ font-size:14.5px; font-weight:700; color:#f4f6fb; min-height:20px; }
+  .hero-wait-sub{ font-size:11.5px; color:#7e88a6; margin-top:8px; }
+  .hero-progress-track{ width:100%; max-width:200px; height:5px; background:#1a2338; border-radius:999px; overflow:hidden; margin:16px 0 0; }
+  .hero-progress-fill{ height:100%; width:0%; background:#7c5cff; transition:width .25s linear; }
+
+  .hero-found-banner{ font-size:13px; font-weight:700; color:#9ee6c2; background:rgba(52,211,153,0.12); border:1px solid rgba(52,211,153,0.3); border-radius:12px; padding:10px 13px; margin-bottom:12px; }
+  .hero-doc-card{ background:#1a2338; border:1px solid #2a3550; border-radius:16px; padding:15px; margin-bottom:14px; }
+  .hero-doc-card-top{ display:flex; justify-content:flex-end; margin-bottom:8px; }
+  .hero-doc-badge{ font-size:10px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:#9ee6c2; background:rgba(52,211,153,0.14); border:1px solid rgba(52,211,153,0.3); padding:4px 9px; border-radius:999px; }
+  .hero-doc-row{ display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid #232d47; font-size:12.5px; }
+  .hero-doc-row:last-of-type{ border-bottom:none; }
+  .hero-doc-label{ color:#7e88a6; }
+  .hero-doc-value{ color:#f4f6fb; font-weight:600; }
+  .hero-blur{ filter: blur(5px); user-select:none; }
+  .hero-doc-caption{ font-size:11px; color:#5c6785; margin-top:10px; padding-top:10px; border-top:1px dashed #232d47; }
+
+  .hero-deadend-icon{ display:flex; justify-content:center; margin:22px 0 4px; }
+  .hero-deadend-title{ font-size:15px; font-weight:700; color:#f4f6fb; text-align:center; margin:14px 0 8px; line-height:1.4; }
+  .hero-deadend-sub{ font-size:12px; color:#9aa4bf; text-align:center; margin:0 0 14px; line-height:1.55; }
+
+  .hero-map-mock{ position:relative; height:160px; border-radius:16px; overflow:hidden; background:#182036; border:1px solid #2a3550; margin-bottom:14px; }
+  .hero-map-grid{ position:absolute; inset:0; background-image: linear-gradient(#232d47 1px, transparent 1px), linear-gradient(90deg, #232d47 1px, transparent 1px); background-size:20px 20px; }
+  .hero-map-pin{ position:absolute; top:50%; left:50%; transform:translate(-50%,-100%); font-size:26px; }
 </style>
 </head>
 <body>
 
 <div class="wrap">
+
+  <div class="hero-card">
+    <span class="hero-card-tag">End-to-end fix</span>
+    <h2>Working solution of paying before you know it is right</h2>
+    <p>A buyer finds documents but cannot tell if it is the correct match before paying. This prototype fixes the search, the wait, the payment moment and the dead end together, as one flow.</p>
+    <button class="cta-btn" id="heroCardBtn" style="width:auto;">View working solution</button>
+  </div>
 
   <div class="board-header">
     <div class="eyebrow">Landeed UX audit</div>
@@ -336,6 +451,29 @@
           <div class="phone-notch"></div>
           <div class="phone-status"><span id="clockTime">9:41</span><span>5G 100%</span></div>
           <div class="phone-screen" id="phoneScreen"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="heroOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="mh-title">Working solution</span>
+      <div class="tabs" id="heroTabs">
+        <button class="tab-btn active" data-tab="found" id="heroTabFound">Found documents</button>
+        <button class="tab-btn" data-tab="deadend" id="heroTabDeadend">No results</button>
+      </div>
+      <button class="close-btn" id="heroCloseBtn">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-info" id="heroModalInfo"></div>
+      <div class="hero-phone-pane">
+        <div class="hero-phone">
+          <div class="hero-phone-notch"></div>
+          <div class="hero-phone-status"><span id="heroClockTime">9:41</span><span>5G 100%</span></div>
+          <div class="hero-phone-screen" id="heroPhoneScreen"></div>
         </div>
       </div>
     </div>
@@ -730,8 +868,227 @@ SCREENS.mapfill = {
   }
 };
 
+/* ================= Hero: working solution ================= */
+const heroOverlay = document.getElementById('heroOverlay');
+const heroModalInfo = document.getElementById('heroModalInfo');
+const heroPhoneScreen = document.getElementById('heroPhoneScreen');
+const heroTabFound = document.getElementById('heroTabFound');
+const heroTabDeadend = document.getElementById('heroTabDeadend');
+const heroCloseBtn = document.getElementById('heroCloseBtn');
+const heroCardBtn = document.getElementById('heroCardBtn');
+
+let heroTab = 'found';
+let heroStep = 'search';
+let heroUsedPincode = false;
+let heroTimers = [];
+
+function heroClearTimers(){ heroTimers.forEach(t=>{clearTimeout(t); clearInterval(t);}); heroTimers = []; }
+
+function openHeroModal(){
+  heroTab = 'found'; heroStep = 'search'; heroUsedPincode = false;
+  renderHeroInfo();
+  renderHeroTabs();
+  renderHeroStep();
+  heroOverlay.classList.add('open');
+  heroOverlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closeHeroModal(){
+  heroOverlay.classList.remove('open');
+  heroClearTimers();
+  document.body.style.overflow = '';
+}
+heroCardBtn.addEventListener('click', openHeroModal);
+heroCloseBtn.addEventListener('click', closeHeroModal);
+heroOverlay.addEventListener('click', e => { if(e.target === heroOverlay) closeHeroModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && heroOverlay.classList.contains('open')) closeHeroModal(); });
+
+function renderHeroInfo(){
+  heroModalInfo.innerHTML = `
+    <span class="eyebrow" style="margin-bottom:14px;">End-to-end fix</span>
+    <h2>Paying before you know it is the right match</h2>
+    <p class="desc">A buyer finds documents but cannot tell if the match is correct before paying. This prototype fixes the search, the wait, the payment moment and the dead end together, as one flow.</p>
+    <div class="before-box">
+      <div class="lbl">Before</div>
+      <p>Search only works with an exact locality. The wait screen gives no context. Payment is asked for with no proof the match is correct. A failed search looks broken and offers nothing else to try.</p>
+    </div>
+    <div class="fix-box">
+      <div class="lbl">Fixed in this prototype</div>
+      <p>Search by locality or pincode. A clearer wait screen. A real document preview before you pay. A friendly dead end with two ways to try again.</p>
+    </div>
+    <div class="small-note">Use the tabs above the phone to switch outcomes. Tap Search inside the phone to see the full flow.</div>
+  `;
+}
+
+function renderHeroTabs(){
+  heroTabFound.classList.toggle('active', heroTab==='found');
+  heroTabDeadend.classList.toggle('active', heroTab==='deadend');
+}
+function heroSwitchTab(tab){
+  heroTab = tab;
+  renderHeroTabs();
+  if(heroStep==='result' || heroStep==='pincode-retry' || heroStep==='map-retry'){
+    heroStep = 'result';
+    heroClearTimers();
+    renderHeroStep();
+  }
+}
+heroTabFound.addEventListener('click', ()=>heroSwitchTab('found'));
+heroTabDeadend.addEventListener('click', ()=>heroSwitchTab('deadend'));
+
+function renderHeroStep(){
+  heroClearTimers();
+  if(heroStep==='search') renderHeroSearch();
+  else if(heroStep==='wait') renderHeroWait();
+  else if(heroStep==='result') (heroTab==='found' ? renderHeroFound() : renderHeroDeadend());
+  else if(heroStep==='pincode-retry') renderHeroPincodeRetry();
+  else if(heroStep==='map-retry') renderHeroMapRetry();
+}
+
+function renderHeroSearch(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-topbar">
+      <span class="hero-back" id="heroCancelBtn">&#8592;</span>
+      <span class="hero-topbar-title">Property Search</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="hero-field-label">Locality / Area / Village or Pincode <span class="hero-info">&#9432;</span></div>
+    <input class="hero-field" id="heroLocality" value="${heroUsedPincode ? '110068' : 'Neb Sarai'}">
+    <div class="hero-hint">Enter the locality name you want to search, or enter a pincode instead.</div>
+    <div class="hero-chip-row"><span class="hero-chip" id="heroPincodeChip">${heroUsedPincode ? 'Using pincode 110068' : 'Try pincode: 110068 instead'}</span></div>
+
+    <div class="hero-field-label" style="margin-top:16px;">Search by</div>
+    <div class="hero-seg">
+      <button class="hero-seg-btn active" type="button">Seller</button>
+      <button class="hero-seg-btn" type="button">Buyer</button>
+    </div>
+
+    <div class="hero-field-label" style="margin-top:16px;">Seller Name</div>
+    <input class="hero-field" id="heroName" value="Abhishek Dagar">
+
+    <button class="hero-btn-primary" id="heroSearchBtn" style="margin-top:24px;">Search</button>
+  `;
+  document.getElementById('heroCancelBtn').onclick = closeHeroModal;
+  document.getElementById('heroPincodeChip').onclick = ()=>{ heroUsedPincode = !heroUsedPincode; renderHeroSearch(); };
+  document.querySelectorAll('.hero-seg-btn').forEach(b=>{
+    b.onclick = ()=>{ document.querySelectorAll('.hero-seg-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); };
+  });
+  document.getElementById('heroSearchBtn').onclick = ()=>{ heroStep='wait'; renderHeroStep(); };
+}
+
+const HERO_WAIT_CAPTIONS = ["Finding your location...", "Looking for property documents...", "Hold on, we found something..."];
+function renderHeroWait(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-wait-wrap">
+      <div class="hero-ring"></div>
+      <div class="hero-wait-text" id="heroWaitText">${HERO_WAIT_CAPTIONS[0]}</div>
+      <div class="hero-progress-track"><div class="hero-progress-fill" id="heroProgressFill"></div></div>
+      <div class="hero-wait-sub">This usually takes about 15 seconds.</div>
+    </div>
+  `;
+  const textEl = document.getElementById('heroWaitText');
+  const fill = document.getElementById('heroProgressFill');
+  let idx = 0, pct = 0;
+  const iv = setInterval(()=>{
+    pct += 100/32;
+    fill.style.width = Math.min(pct,100)+'%';
+    const nextIdx = Math.min(HERO_WAIT_CAPTIONS.length-1, Math.floor(pct/100*HERO_WAIT_CAPTIONS.length));
+    if(nextIdx !== idx){ idx = nextIdx; textEl.textContent = HERO_WAIT_CAPTIONS[idx]; }
+    if(pct >= 100){
+      clearInterval(iv);
+      const t = setTimeout(()=>{ heroStep='result'; renderHeroStep(); }, 400);
+      heroTimers.push(t);
+    }
+  }, 260);
+  heroTimers.push(iv);
+}
+
+function renderHeroFound(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-topbar">
+      <span class="hero-back" id="heroRestartBtn">&#8635;</span>
+      <span class="hero-topbar-title">Neb Sarai, Delhi</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="hero-found-banner">We found 3 Encumbrance Certificates</div>
+    <div class="hero-doc-card">
+      <div class="hero-doc-card-top"><span class="hero-doc-badge">Verified match</span></div>
+      <div class="hero-doc-row"><span class="hero-doc-label">Owner Name</span><span class="hero-doc-value">Aditya <span class="hero-blur">Kumar</span></span></div>
+      <div class="hero-doc-row"><span class="hero-doc-label">Survey No.</span><span class="hero-doc-value hero-blur">10x/4B</span></div>
+      <div class="hero-doc-row"><span class="hero-doc-label">Registration Date</span><span class="hero-doc-value hero-blur">12 May 2021</span></div>
+      <div class="hero-doc-caption">Preview of your latest matching document. The rest unlocks after payment.</div>
+    </div>
+    <button class="hero-btn-primary">Pay Rs. 49 to unlock full document</button>
+  `;
+  document.getElementById('heroRestartBtn').onclick = ()=>{ heroStep='search'; renderHeroStep(); };
+}
+
+function renderHeroDeadend(){
+  const tip = heroUsedPincode
+    ? "You already searched with a pincode. Try the map instead, or contact support."
+    : "Tip: searching with a pincode finds matches more often.";
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-topbar">
+      <span class="hero-back" id="heroRestartBtn2">&#8635;</span>
+      <span class="hero-topbar-title">Neb Sarai, Delhi</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="hero-deadend-icon">
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#4a5578" stroke-width="1.6"><path d="M12 3 L22 20 H2 Z" stroke-linejoin="round" stroke-linecap="round"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17.3" r="0.9" fill="#4a5578" stroke="none"/></svg>
+    </div>
+    <div class="hero-deadend-title">Didn't find any results for Abhishek Dagar, Neb Sarai.</div>
+    <div class="hero-deadend-sub">This can happen if the name or locality does not match official records.</div>
+    <div class="hero-tip">${tip}</div>
+    <button class="hero-btn-outline" id="tryPincodeBtn">Try pincode and name</button>
+    <button class="hero-btn-outline" id="tryMapBtn">Try map location</button>
+    <div class="hero-support-link">Contact support</div>
+  `;
+  document.getElementById('heroRestartBtn2').onclick = ()=>{ heroStep='search'; renderHeroStep(); };
+  document.getElementById('tryPincodeBtn').onclick = ()=>{ heroStep='pincode-retry'; renderHeroStep(); };
+  document.getElementById('tryMapBtn').onclick = ()=>{ heroStep='map-retry'; renderHeroStep(); };
+}
+
+function renderHeroPincodeRetry(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-topbar">
+      <span class="hero-back" id="heroBackBtn">&#8592;</span>
+      <span class="hero-topbar-title">Search by pincode</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="hero-field-label">Pincode</div>
+    <input class="hero-field" value="110068">
+    <div class="hero-field-label" style="margin-top:16px;">Name</div>
+    <input class="hero-field" value="Abhishek Dagar">
+    <div class="hero-hint">A pincode narrows the search to one small area, so a name match is easier to find.</div>
+    <button class="hero-btn-primary" style="margin-top:22px;">Search again</button>
+  `;
+  document.getElementById('heroBackBtn').onclick = ()=>{ heroStep='result'; renderHeroStep(); };
+}
+
+function renderHeroMapRetry(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-topbar">
+      <span class="hero-back" id="heroBackBtn2">&#8592;</span>
+      <span class="hero-topbar-title">Pin your property</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="hero-map-mock">
+      <div class="hero-map-grid"></div>
+      <div class="hero-map-pin">&#128205;</div>
+    </div>
+    <div class="hero-hint">Drop a pin on your property. It gets matched to the nearest survey records on its own, no typing needed.</div>
+    <button class="hero-btn-primary" style="margin-top:6px;">Confirm location</button>
+  `;
+  document.getElementById('heroBackBtn2').onclick = ()=>{ heroStep='result'; renderHeroStep(); };
+}
+
 /* clock */
-function tick(){ document.getElementById('clockTime').textContent = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',hour12:false}); }
+function tick(){
+  const t = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',hour12:false});
+  document.getElementById('clockTime').textContent = t;
+  const h = document.getElementById('heroClockTime');
+  if(h) h.textContent = t;
+}
 tick(); setInterval(tick, 30000);
 </script>
 </body>
