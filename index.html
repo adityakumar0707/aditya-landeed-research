@@ -354,11 +354,6 @@
   }
   .hero-field:focus{ border-color:#7c5cff; }
   .hero-hint{ font-size:11.5px; color:#7e88a6; line-height:1.5; margin:2px 0 4px; }
-  .hero-chip-row{ margin:8px 0 4px; }
-  .hero-chip{
-    display:inline-flex; align-items:center; background:rgba(124,92,255,0.14); border:1px solid rgba(124,92,255,0.4);
-    color:#c3b6ff; font-size:11.5px; font-weight:700; padding:6px 12px; border-radius:999px; cursor:pointer;
-  }
   .hero-tip{
     font-size:11.5px; color:#f4c778; background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.28);
     border-radius:11px; padding:10px 12px; margin:10px 0 14px; line-height:1.5;
@@ -381,24 +376,70 @@
   .hero-btn-outline:hover{ background:rgba(124,92,255,0.1); }
   .hero-support-link{ text-align:center; font-size:12px; color:#7e88a6; text-decoration:underline; cursor:pointer; margin-top:6px; }
 
-  .hero-wait-wrap{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:60px 6px 20px; }
-  .hero-ring{ width:56px; height:56px; border-radius:50%; border:4px solid #2a3550; border-top-color:#7c5cff; animation: heroSpin 0.9s linear infinite; margin-bottom:22px; }
-  @keyframes heroSpin{ to{ transform: rotate(360deg); } }
-  .hero-wait-text{ font-size:14.5px; font-weight:700; color:#f4f6fb; min-height:20px; }
-  .hero-wait-sub{ font-size:11.5px; color:#7e88a6; margin-top:8px; }
-  .hero-progress-track{ width:100%; max-width:200px; height:5px; background:#1a2338; border-radius:999px; overflow:hidden; margin:16px 0 0; }
+  .hero-wait-sub{ font-size:11.5px; color:#7e88a6; margin:0 0 4px; }
+  .hero-progress-track{ width:100%; height:5px; background:#1a2338; border-radius:999px; overflow:hidden; margin:8px 0 4px; }
   .hero-progress-fill{ height:100%; width:0%; background:#7c5cff; transition:width .25s linear; }
+  .hero-stage-list{ display:flex; flex-direction:column; gap:12px; margin:22px 0 16px; }
+  .hero-stage{ display:flex; align-items:center; gap:10px; }
+  .hero-stage .dot{ width:22px; height:22px; border-radius:50%; background:#1a2338; border:2px solid #2a3550; flex:none; display:flex; align-items:center; justify-content:center; font-size:11px; color:#9ee6c2; }
+  .hero-stage.active .dot{ border-color:#7c5cff; background:rgba(124,92,255,0.16); }
+  .hero-stage.done .dot{ border-color:#34d399; background:rgba(52,211,153,0.14); }
+  .hero-stage .label{ font-size:13px; color:#7e88a6; font-weight:600; }
+  .hero-stage.active .label{ color:#f4f6fb; }
+  .hero-stage.done .label{ color:#c7cee3; }
 
-  .hero-found-banner{ font-size:13px; font-weight:700; color:#9ee6c2; background:rgba(52,211,153,0.12); border:1px solid rgba(52,211,153,0.3); border-radius:12px; padding:10px 13px; margin-bottom:12px; }
+  .hero-reveal{ display:flex; align-items:center; justify-content:space-between; gap:10px; background:rgba(124,92,255,0.1); border:1px solid rgba(124,92,255,0.32); border-radius:12px; padding:11px 13px; margin-bottom:12px; font-size:12.5px; }
+  .hero-reveal-label{ color:#c3b6ff; font-weight:600; }
+  .hero-reveal-value{ color:#f4f6fb; font-weight:700; }
+
   .hero-doc-card{ background:#1a2338; border:1px solid #2a3550; border-radius:16px; padding:15px; margin-bottom:14px; }
-  .hero-doc-card-top{ display:flex; justify-content:flex-end; margin-bottom:8px; }
-  .hero-doc-badge{ font-size:10px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:#9ee6c2; background:rgba(52,211,153,0.14); border:1px solid rgba(52,211,153,0.3); padding:4px 9px; border-radius:999px; }
-  .hero-doc-row{ display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid #232d47; font-size:12.5px; }
+  .hero-doc-row{ display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #232d47; font-size:13px; }
   .hero-doc-row:last-of-type{ border-bottom:none; }
-  .hero-doc-label{ color:#7e88a6; }
+  .hero-doc-label{ color:#c7cee3; }
   .hero-doc-value{ color:#f4f6fb; font-weight:600; }
   .hero-blur{ filter: blur(5px); user-select:none; }
-  .hero-doc-caption{ font-size:11px; color:#5c6785; margin-top:10px; padding-top:10px; border-top:1px dashed #232d47; }
+
+  /* home screen replica */
+  .hero-home-top{ display:flex; align-items:center; justify-content:space-between; padding:2px 0 12px; }
+  .hero-home-city{ font-size:15px; font-weight:700; color:#f4f6fb; }
+  .hero-home-avatar{ width:26px; height:26px; border-radius:50%; border:1.5px solid #3a4364; display:flex; align-items:center; justify-content:center; color:#7e88a6; font-size:13px; }
+  .hero-home-searchbar{ display:flex; align-items:center; justify-content:space-between; background:#1a2338; border:1px solid #2a3550; border-radius:999px; padding:12px 15px; font-size:12px; color:#7e88a6; margin-bottom:14px; }
+  .hero-home-cards{ display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:16px; }
+  .hero-home-card{ border-radius:14px; padding:12px; min-height:96px; position:relative; overflow:hidden; }
+  .hero-home-card--ai{ background: linear-gradient(160deg, #2a2050, #14192e); }
+  .hero-home-card--guide{ background: linear-gradient(160deg, #1c2650, #14192e); }
+  .hero-home-badge{ display:inline-block; font-size:9.5px; font-weight:700; color:#c9bbff; background:rgba(124,92,255,0.22); border:1px solid rgba(124,92,255,0.4); padding:3px 8px; border-radius:999px; margin-bottom:8px; }
+  .hero-home-card-title{ font-size:12.5px; font-weight:700; color:#f4f6fb; line-height:1.35; }
+  .hero-home-tabs{ display:flex; gap:8px; margin-bottom:14px; }
+  .hero-home-tab{ font-size:12px; font-weight:700; padding:8px 15px; border-radius:999px; border:1px solid #2a3550; color:#9aa4bf; }
+  .hero-home-tab.active{ background:#7c5cff; color:#fff; border-color:#7c5cff; }
+  .hero-home-section-label{ font-size:13px; font-weight:700; color:#f4f6fb; margin-bottom:10px; }
+
+  .hero-tool-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px 8px; margin-bottom:18px; }
+  .hero-tool{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:7px; position:relative; opacity:.55; }
+  .hero-tool--active{ opacity:1; cursor:pointer; }
+  .hero-tool-icon{ width:46px; height:46px; border-radius:13px; border:1.5px solid #2a3550; display:flex; align-items:center; justify-content:center; font-size:17px; color:#e7eaf5; }
+  .hero-tool--active .hero-tool-icon{ border-color:#7c5cff; box-shadow:0 0 0 3px rgba(124,92,255,0.18); }
+  .hero-tool-label{ font-size:10.5px; color:#c7cee3; line-height:1.3; }
+  .hero-tool-tag{
+    position:absolute; top:-9px; right:-4px; background:#7c5cff; color:#fff; font-size:9px; font-weight:800;
+    letter-spacing:.03em; text-transform:uppercase; padding:3px 6px; border-radius:999px; white-space:nowrap;
+    animation: heroTagPulse 1.6s ease-in-out infinite;
+  }
+  @keyframes heroTagPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.08); } }
+
+  .hero-bottomnav{ display:flex; align-items:flex-end; justify-content:space-between; border-top:1px solid #232d47; padding-top:12px; margin-top:4px; }
+  .hero-nav-item{ display:flex; flex-direction:column; align-items:center; gap:4px; font-size:9.5px; color:#6c7592; flex:1; }
+  .hero-nav-item.active{ color:#a996ff; }
+  .hero-nav-item span{ font-size:15px; }
+  .hero-nav-center-wrap{ display:flex; flex-direction:column; align-items:center; gap:4px; font-size:9.5px; color:#c3b6ff; flex:1; }
+  .hero-nav-center{ width:38px; height:38px; border-radius:50%; background: linear-gradient(135deg,#8a6dff,#5b3df0); display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px; box-shadow:0 0 14px rgba(124,92,255,0.55); }
+
+  .hero-dd{ background:#1a2338; border:1px solid #2a3550; border-radius:12px; margin-top:-2px; overflow:hidden; }
+  .hero-dd-row{ display:flex; flex-direction:column; padding:11px 14px; font-size:13px; color:#f4f6fb; cursor:pointer; border-bottom:1px solid #232d47; }
+  .hero-dd-row:last-child{ border-bottom:none; }
+  .hero-dd-row:hover{ background:rgba(124,92,255,0.1); }
+  .hero-dd-row .hero-dd-sub{ font-size:11px; color:#7e88a6; margin-top:2px; }
 
   .hero-deadend-icon{ display:flex; justify-content:center; margin:22px 0 4px; }
   .hero-deadend-title{ font-size:15px; font-weight:700; color:#f4f6fb; text-align:center; margin:14px 0 8px; line-height:1.4; }
@@ -877,15 +918,19 @@ const heroTabDeadend = document.getElementById('heroTabDeadend');
 const heroCloseBtn = document.getElementById('heroCloseBtn');
 const heroCardBtn = document.getElementById('heroCardBtn');
 
+const HERO_PINCODE_MAP = { "110068": ["Neb Sarai","Saket","Chirag Delhi"] };
+const HERO_LOCALITIES = ["Neb Sarai","Saket","Chirag Delhi","Khanpur"];
+
 let heroTab = 'found';
-let heroStep = 'search';
+let heroStep = 'locality-picker';
+let heroLocalityName = 'Neb Sarai';
 let heroUsedPincode = false;
 let heroTimers = [];
 
 function heroClearTimers(){ heroTimers.forEach(t=>{clearTimeout(t); clearInterval(t);}); heroTimers = []; }
 
 function openHeroModal(){
-  heroTab = 'found'; heroStep = 'search'; heroUsedPincode = false;
+  heroTab = 'found'; heroStep = 'locality-picker'; heroLocalityName = 'Neb Sarai'; heroUsedPincode = false;
   renderHeroInfo();
   renderHeroTabs();
   renderHeroStep();
@@ -906,17 +951,17 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape' && heroOverlay
 function renderHeroInfo(){
   heroModalInfo.innerHTML = `
     <span class="eyebrow" style="margin-bottom:14px;">End-to-end fix</span>
-    <h2>Paying before you know it is the right match</h2>
-    <p class="desc">A buyer finds documents but cannot tell if the match is correct before paying. This prototype fixes the search, the wait, the payment moment and the dead end together, as one flow.</p>
+    <h2>Paying for a match you cannot yet trust</h2>
+    <p class="desc">Once documents are found, payment is asked for right away. Nothing about the result is shown first, so there is no reason to believe it is actually the right property.</p>
     <div class="before-box">
       <div class="lbl">Before</div>
-      <p>Search only works with an exact locality. The wait screen gives no context. Payment is asked for with no proof the match is correct. A failed search looks broken and offers nothing else to try.</p>
+      <p>Locality search only works with an exact match. Once a record is found, the user is asked to pay before seeing anything that confirms it is theirs.</p>
     </div>
     <div class="fix-box">
       <div class="lbl">Fixed in this prototype</div>
-      <p>Search by locality or pincode. A clearer wait screen. A real document preview before you pay. A friendly dead end with two ways to try again.</p>
+      <p>Search by locality or pincode, with more fields to match on. Once a record is found, the owner's first name, something the user already typed in, is shown as a small preview. Just enough to reassure them the match is correct before they pay.</p>
     </div>
-    <div class="small-note">Use the tabs above the phone to switch outcomes. Tap Search inside the phone to see the full flow.</div>
+    <div class="small-note">Walk through the phone: pick a location, open Property Search, run a search, then see the result. Use the tabs above the phone to compare the found and no-results outcomes.</div>
   `;
 }
 
@@ -938,91 +983,190 @@ heroTabDeadend.addEventListener('click', ()=>heroSwitchTab('deadend'));
 
 function renderHeroStep(){
   heroClearTimers();
-  if(heroStep==='search') renderHeroSearch();
+  if(heroStep==='locality-picker') renderHeroLocalityPicker();
+  else if(heroStep==='home') renderHeroHome();
+  else if(heroStep==='search-form') renderHeroSearchForm();
   else if(heroStep==='wait') renderHeroWait();
   else if(heroStep==='result') (heroTab==='found' ? renderHeroFound() : renderHeroDeadend());
   else if(heroStep==='pincode-retry') renderHeroPincodeRetry();
   else if(heroStep==='map-retry') renderHeroMapRetry();
 }
 
-function renderHeroSearch(){
+/* ---- 0. pick a location, locality name or pincode ---- */
+function renderHeroLocalityPicker(){
   heroPhoneScreen.innerHTML = `
     <div class="hero-topbar">
-      <span class="hero-back" id="heroCancelBtn">&#8592;</span>
+      <span class="hero-back" id="heroCancelBtn0">&#10005;</span>
+      <span class="hero-topbar-title">Select your location</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="hero-field-label">Locality name or pincode</div>
+    <input class="hero-field" id="heroLocIn" placeholder="Try Neb Sarai or 110068" autocomplete="off">
+    <div class="hero-hint">Search a locality name, or enter a pincode to see the localities inside it.</div>
+    <div id="heroLocResults"></div>
+  `;
+  document.getElementById('heroCancelBtn0').onclick = closeHeroModal;
+  const resultsEl = document.getElementById('heroLocResults');
+  document.getElementById('heroLocIn').addEventListener('input', e=>{
+    const q = e.target.value.trim();
+    if(!q){ resultsEl.innerHTML=''; return; }
+    let matches = [];
+    if(/^\d+$/.test(q)){
+      const pin = Object.keys(HERO_PINCODE_MAP).find(p=>p.startsWith(q));
+      if(pin) matches = HERO_PINCODE_MAP[pin].map(loc=>({loc, sub:`Pincode ${pin}, Delhi`, pincode:true}));
+    } else {
+      matches = HERO_LOCALITIES.filter(loc=>loc.toLowerCase().includes(q.toLowerCase())).map(loc=>({loc, sub:'Delhi', pincode:false}));
+    }
+    if(matches.length===0){ resultsEl.innerHTML = `<div class="hero-dd"><div class="hero-dd-row" style="cursor:default;">No matches yet, keep typing</div></div>`; return; }
+    resultsEl.innerHTML = `<div class="hero-dd">${matches.map(m=>`<div class="hero-dd-row" data-loc="${m.loc}" data-pin="${m.pincode}"><span>${m.loc}</span><span class="hero-dd-sub">${m.sub}</span></div>`).join('')}</div>`;
+    resultsEl.querySelectorAll('.hero-dd-row[data-loc]').forEach(row=>{
+      row.onclick = ()=>{
+        heroLocalityName = row.dataset.loc;
+        heroUsedPincode = row.dataset.pin === 'true';
+        heroStep = 'home';
+        renderHeroStep();
+      };
+    });
+  });
+}
+
+/* ---- 1. Landeed home, only Property Search is interactive ---- */
+function renderHeroHome(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-home-top">
+      <span class="hero-home-city">Delhi &#9662;</span>
+      <span class="hero-home-avatar">&#128100;</span>
+    </div>
+    <div class="hero-home-searchbar"><span>&#2361;&#2367;&#2344;&#2381;&#2342;&#2368; &#2350;&#2375;&#2306; &#2342;&#2375;&#2326;&#2375;&#2306;</span><span>&#10005;</span></div>
+    <div class="hero-home-cards">
+      <div class="hero-home-card hero-home-card--ai">
+        <span class="hero-home-badge">AI Review</span>
+        <div class="hero-home-card-title">Decode a Property Document</div>
+      </div>
+      <div class="hero-home-card hero-home-card--guide">
+        <span class="hero-home-badge">Guided Help</span>
+        <div class="hero-home-card-title">Know What To Do Next</div>
+      </div>
+    </div>
+    <div class="hero-home-tabs">
+      <span class="hero-home-tab active">Popular</span>
+      <span class="hero-home-tab">Legal Verification</span>
+    </div>
+    <div class="hero-home-section-label">Popular</div>
+    <div class="hero-tool-grid">
+      <div class="hero-tool"><div class="hero-tool-icon">&#9733;</div><div class="hero-tool-label">Starred Items</div></div>
+      <div class="hero-tool hero-tool--active" id="heroPropSearchTile">
+        <div class="hero-tool-icon">&#128269;</div>
+        <div class="hero-tool-label">Property Search</div>
+        <span class="hero-tool-tag">Tap here</span>
+      </div>
+      <div class="hero-tool"><div class="hero-tool-icon">&#128220;</div><div class="hero-tool-label">Certified Deed</div></div>
+      <div class="hero-tool"><div class="hero-tool-icon">&#128506;</div><div class="hero-tool-label">Certified Naksha</div></div>
+      <div class="hero-tool"><div class="hero-tool-icon" style="font-size:11px; font-weight:800;">ROR</div><div class="hero-tool-label">Khasra Khatauni</div></div>
+      <div class="hero-tool"><div class="hero-tool-icon">&#128203;</div><div class="hero-tool-label">Mutation Certificate</div></div>
+    </div>
+    <div class="hero-bottomnav">
+      <div class="hero-nav-item active"><span>&#128269;</span>Search</div>
+      <div class="hero-nav-item"><span>&#128176;</span>Vault</div>
+      <div class="hero-nav-center-wrap"><div class="hero-nav-center">&#10022;</div>Ask Terra</div>
+      <div class="hero-nav-item"><span>&#8377;</span>Bills</div>
+      <div class="hero-nav-item"><span>&#128203;</span>Orders</div>
+    </div>
+  `;
+  document.getElementById('heroPropSearchTile').onclick = ()=>{ heroStep='search-form'; renderHeroStep(); };
+}
+
+/* ---- 2. Property Search form: locality, pincode, name, house/plot no ---- */
+function renderHeroSearchForm(){
+  heroPhoneScreen.innerHTML = `
+    <div class="hero-topbar">
+      <span class="hero-back" id="heroBackHome">&#8592;</span>
       <span class="hero-topbar-title">Property Search</span>
       <span style="width:26px"></span>
     </div>
-    <div class="hero-field-label">Locality / Area / Village or Pincode <span class="hero-info">&#9432;</span></div>
-    <input class="hero-field" id="heroLocality" value="${heroUsedPincode ? '110068' : 'Neb Sarai'}">
-    <div class="hero-hint">Enter the locality name you want to search, or enter a pincode instead.</div>
-    <div class="hero-chip-row"><span class="hero-chip" id="heroPincodeChip">${heroUsedPincode ? 'Using pincode 110068' : 'Try pincode: 110068 instead'}</span></div>
+    <div class="hero-field-label">Locality / Area / Village / Division <span class="hero-info">&#9432;</span></div>
+    <input class="hero-field" id="heroLocality2" value="${heroLocalityName}">
 
-    <div class="hero-field-label" style="margin-top:16px;">Search by</div>
+    <div class="hero-field-label" style="margin-top:14px;">Pincode <span style="opacity:.55">(optional)</span></div>
+    <input class="hero-field" id="heroPincode2" placeholder="6-digit pincode" value="${heroUsedPincode ? '110068' : ''}">
+
+    <div class="hero-field-label" style="margin-top:14px;">Search by</div>
     <div class="hero-seg">
       <button class="hero-seg-btn active" type="button">Seller</button>
       <button class="hero-seg-btn" type="button">Buyer</button>
     </div>
 
-    <div class="hero-field-label" style="margin-top:16px;">Seller Name</div>
-    <input class="hero-field" id="heroName" value="Abhishek Dagar">
+    <div class="hero-field-label" style="margin-top:14px;">Seller Name</div>
+    <input class="hero-field" id="heroName2" value="Abhishek Dagar">
 
-    <button class="hero-btn-primary" id="heroSearchBtn" style="margin-top:24px;">Search</button>
+    <div class="hero-field-label" style="margin-top:14px;">House / Plot No. <span style="opacity:.55">(optional)</span></div>
+    <input class="hero-field" id="heroHouse2" placeholder="e.g. A-232">
+
+    <button class="hero-btn-primary" id="heroSearchBtn" style="margin-top:20px;">Search</button>
   `;
-  document.getElementById('heroCancelBtn').onclick = closeHeroModal;
-  document.getElementById('heroPincodeChip').onclick = ()=>{ heroUsedPincode = !heroUsedPincode; renderHeroSearch(); };
+  document.getElementById('heroBackHome').onclick = ()=>{ heroStep='home'; renderHeroStep(); };
   document.querySelectorAll('.hero-seg-btn').forEach(b=>{
     b.onclick = ()=>{ document.querySelectorAll('.hero-seg-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); };
   });
-  document.getElementById('heroSearchBtn').onclick = ()=>{ heroStep='wait'; renderHeroStep(); };
+  document.getElementById('heroSearchBtn').onclick = ()=>{
+    heroUsedPincode = document.getElementById('heroPincode2').value.trim().length > 0;
+    heroStep='wait'; renderHeroStep();
+  };
 }
 
-const HERO_WAIT_CAPTIONS = ["Finding your location...", "Looking for property documents...", "Hold on, we found something..."];
+/* ---- 3. wait, same four stages as the wait time fix ---- */
 function renderHeroWait(){
   heroPhoneScreen.innerHTML = `
-    <div class="hero-wait-wrap">
-      <div class="hero-ring"></div>
-      <div class="hero-wait-text" id="heroWaitText">${HERO_WAIT_CAPTIONS[0]}</div>
+    <div style="padding-top:8px;">
+      <div class="hero-wait-sub">Usually takes 15 to 20 seconds.</div>
       <div class="hero-progress-track"><div class="hero-progress-fill" id="heroProgressFill"></div></div>
-      <div class="hero-wait-sub">This usually takes about 15 seconds.</div>
+      <div class="hero-stage-list">${STAGES.map((s,i)=>`<div class="hero-stage" data-i="${i}"><div class="dot"></div><div class="label">${s}</div></div>`).join('')}</div>
     </div>
   `;
-  const textEl = document.getElementById('heroWaitText');
   const fill = document.getElementById('heroProgressFill');
-  let idx = 0, pct = 0;
+  const stages = heroPhoneScreen.querySelectorAll('.hero-stage');
+  let i = -1, pct = 0;
   const iv = setInterval(()=>{
-    pct += 100/32;
+    pct += 100/18;
     fill.style.width = Math.min(pct,100)+'%';
-    const nextIdx = Math.min(HERO_WAIT_CAPTIONS.length-1, Math.floor(pct/100*HERO_WAIT_CAPTIONS.length));
-    if(nextIdx !== idx){ idx = nextIdx; textEl.textContent = HERO_WAIT_CAPTIONS[idx]; }
+    if(pct/100*18 % 4.5 < 1 && i < stages.length-1){
+      if(i>=0) stages[i].classList.replace('active','done');
+      i++; stages[i].classList.add('active');
+    }
     if(pct >= 100){
       clearInterval(iv);
+      stages[stages.length-1].classList.replace('active','done');
       const t = setTimeout(()=>{ heroStep='result'; renderHeroStep(); }, 400);
       heroTimers.push(t);
     }
-  }, 260);
+  }, 300);
   heroTimers.push(iv);
 }
 
+/* ---- 4a. found: original priced document card, plus a one line name reveal ---- */
 function renderHeroFound(){
   heroPhoneScreen.innerHTML = `
     <div class="hero-topbar">
       <span class="hero-back" id="heroRestartBtn">&#8635;</span>
-      <span class="hero-topbar-title">Neb Sarai, Delhi</span>
+      <span class="hero-topbar-title">${heroLocalityName}, Delhi</span>
       <span style="width:26px"></span>
     </div>
-    <div class="hero-found-banner">We found 3 Encumbrance Certificates</div>
-    <div class="hero-doc-card">
-      <div class="hero-doc-card-top"><span class="hero-doc-badge">Verified match</span></div>
-      <div class="hero-doc-row"><span class="hero-doc-label">Owner Name</span><span class="hero-doc-value">Aditya <span class="hero-blur">Kumar</span></span></div>
-      <div class="hero-doc-row"><span class="hero-doc-label">Survey No.</span><span class="hero-doc-value hero-blur">10x/4B</span></div>
-      <div class="hero-doc-row"><span class="hero-doc-label">Registration Date</span><span class="hero-doc-value hero-blur">12 May 2021</span></div>
-      <div class="hero-doc-caption">Preview of your latest matching document. The rest unlocks after payment.</div>
+    <div class="hero-reveal">
+      <span class="hero-reveal-label">Owner name on record</span>
+      <span class="hero-reveal-value">Aditya <span class="hero-blur">Kumar</span></span>
     </div>
-    <button class="hero-btn-primary">Pay Rs. 49 to unlock full document</button>
+    <div class="hero-doc-card">
+      <div class="row-between" style="margin-bottom:2px;"><b style="font-size:13px; color:#f4f6fb;">Record found</b><span style="font-size:11.5px; color:#7e88a6;">SY-10x</span></div>
+      <div class="hero-doc-row"><span class="hero-doc-label">EC</span><span class="hero-doc-value">Rs. 49</span></div>
+      <div class="hero-doc-row"><span class="hero-doc-label">RTC</span><span class="hero-doc-value">Rs. 29</span></div>
+      <div class="hero-doc-row"><span class="hero-doc-label">Khata</span><span class="hero-doc-value">Rs. 35</span></div>
+    </div>
+    <button class="hero-btn-primary">Unlock EC for Rs. 49</button>
   `;
-  document.getElementById('heroRestartBtn').onclick = ()=>{ heroStep='search'; renderHeroStep(); };
+  document.getElementById('heroRestartBtn').onclick = ()=>{ heroStep='search-form'; renderHeroStep(); };
 }
 
+/* ---- 4b. dead end ---- */
 function renderHeroDeadend(){
   const tip = heroUsedPincode
     ? "You already searched with a pincode. Try the map instead, or contact support."
@@ -1030,20 +1174,20 @@ function renderHeroDeadend(){
   heroPhoneScreen.innerHTML = `
     <div class="hero-topbar">
       <span class="hero-back" id="heroRestartBtn2">&#8635;</span>
-      <span class="hero-topbar-title">Neb Sarai, Delhi</span>
+      <span class="hero-topbar-title">${heroLocalityName}, Delhi</span>
       <span style="width:26px"></span>
     </div>
     <div class="hero-deadend-icon">
       <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#4a5578" stroke-width="1.6"><path d="M12 3 L22 20 H2 Z" stroke-linejoin="round" stroke-linecap="round"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17.3" r="0.9" fill="#4a5578" stroke="none"/></svg>
     </div>
-    <div class="hero-deadend-title">Didn't find any results for Abhishek Dagar, Neb Sarai.</div>
+    <div class="hero-deadend-title">Didn't find any results for Abhishek Dagar, ${heroLocalityName}.</div>
     <div class="hero-deadend-sub">This can happen if the name or locality does not match official records.</div>
     <div class="hero-tip">${tip}</div>
     <button class="hero-btn-outline" id="tryPincodeBtn">Try pincode and name</button>
     <button class="hero-btn-outline" id="tryMapBtn">Try map location</button>
     <div class="hero-support-link">Contact support</div>
   `;
-  document.getElementById('heroRestartBtn2').onclick = ()=>{ heroStep='search'; renderHeroStep(); };
+  document.getElementById('heroRestartBtn2').onclick = ()=>{ heroStep='search-form'; renderHeroStep(); };
   document.getElementById('tryPincodeBtn').onclick = ()=>{ heroStep='pincode-retry'; renderHeroStep(); };
   document.getElementById('tryMapBtn').onclick = ()=>{ heroStep='map-retry'; renderHeroStep(); };
 }
